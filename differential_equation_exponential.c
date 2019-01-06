@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <math.h>
 void main()
 {
 	long double x,y,i,y_0,k,x_f,delta_x,iterations;
@@ -15,7 +15,7 @@ void main()
 	delta_x = x_f/iterations;
 	for (i = 0; i < iterations; i++)
 	{
-		y = y + ((k*y)*delta_x)+(((k*k*y)*delta_x*delta_x)/2)+(((k*k*k*y)*delta_x*delta_x*delta_x)/6);
+		y = y + ((k*y)*delta_x)+((pow(k,2)*y)*pow(delta_x,2)/2)+((pow(k,3)*y)*pow(delta_x,3)/6)+(((pow(k,4)*y)*pow(delta_x,4))/24);
 		printf("Current no of step %Lf and y is %Lf\n", i,y);
 	}
 	printf("y is %Lf at x = %Lf\n", y, x_f);
