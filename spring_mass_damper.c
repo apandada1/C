@@ -19,6 +19,8 @@ void main()
 	scanf("%Lf", &iterations);
 	x = x_0;
 	v = v_0;
+	t = 0;
+	delta_t = t_f/iterations;
 	if(m != 0)
 	{
 		k = k/m;
@@ -26,11 +28,16 @@ void main()
 	}
 	else
 	{
-		printf("Program is not ready for nonzero mass\n");
+		for (i = 0; i < iterations; i++)
+		{
+			t = t + delta_t;
+			x = x - ((k/b) * delta_t);
+			printf("%Lf \t %Lf \t %Lf\n", i,t,x); //step	t    x
+		}
+		printf("x is %Lf at t = %Lf\n", x, t_f);
 		return;
 	}
-	t = 0;
-	delta_t = t_f/iterations;
+
 	for (i = 0; i < iterations; i++)
 	{
 		t = t + delta_t;
