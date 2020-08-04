@@ -46,7 +46,7 @@ int main()
 
     min = ((1 << k) - 1); //min possible values with k bits set
     max = (min << (n-k)); //max possible value with k bits set!
-    printf("min=%d max=%d\n", min, max);
+    //printf("min=%d max=%d\n", min, max);
     for(i=min; i<= max; i++)
     {
             if(NumberOfBitsSet(i) == k)
